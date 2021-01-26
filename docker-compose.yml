@@ -1,0 +1,78 @@
+version: '3'
+services:
+  node_server:
+    build:
+      context: ./node/server/
+    command: /usr/app/node_modules/.bin/nodemon src/index.js
+    volumes:
+      - ./node/server/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "8081:8081"
+    # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+  node_client:
+    build:
+      context: ./node/client/
+    command: npm start
+    volumes:
+      - ./node/client/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - node_server
+    ports:
+      - "3000:3000"
+
+  web:
+    build:
+      context: ./lamp/
+    ports:
+      - "80:80"
+    volumes:
+      - ~/www:/var/www/html
+    links:
+      - db:db
+  db:
+    image: mysql:5.5
+    volumes:
+      - ~/mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    links:
+      - db:db
+
+  wordpress_db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+  wordpress:
+    depends_on:
+      - wordpress_db
+    image: wordpress:latest
+    ports:
+      - "8082:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: wordpress_db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+
+volumes:
+  db_data: {}

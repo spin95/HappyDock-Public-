@@ -1,0 +1,171 @@
+﻿a:hover {
+    text-decoration: none;
+}
+
+#header {
+    background: #609277;
+    padding-bottom: 30px;
+    box-shadow: 0 3px 3px #04382f;
+    text-shadow: 0 0 10px #04382f;
+    color: #F2F2F2;
+}
+
+#headerLogo {
+    margin: 20px 0 0 50px;
+    border-radius: 5px;
+}
+
+#headerTitle {
+    padding-top: 30px;
+    font-size: 36px;
+}
+
+#main {
+    background: url(../img/background.jpg) no-repeat fixed;
+    background-size: 100%;
+    padding-bottom: 150px;
+}
+
+#signIn, #dashboard, #adminUser {
+    padding: 50px 10% 50px 10%;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px #04382f;
+    opacity: 0.9;
+}
+
+.blockLink {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #025747;
+    background: #b1dab1;
+    transition: 0.3s;
+    font-size: 20px;
+    color: #003004;
+}
+
+.blockLink:hover {
+    background: #025747;
+    color: white;
+    font-weight: bold;
+}
+
+#footer {
+    padding: 50px 0 200px 50px;
+    box-shadow: 0 -3px 3px #04382f;
+    background: #609277;
+    color: white;
+    font-size: 18px;
+}
+
+#adminLink {
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #00a082;
+    color: white;
+}
+
+#adminLink:hover {
+    font-weight: bold;
+    background: #025747;
+}
+
+#admin {
+    padding: 20px;
+    background: #00a082;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    color: black;
+}
+
+.blockTitle {
+    padding: 5px 5px 10px 5px;
+    color: #028069;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    padding: 6px 30px 6px 30px;
+    box-shadow: 0 0 3px black;
+}
+
+.hide {
+    display: none;
+}
+
+.closeIcon {
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: right;
+    font-size: 28px;
+    color: white;
+}
+
+.closeIcon2 {
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: right;
+    font-size: 28px;
+    color: red;
+}
+
+.closeIcon:hover {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: red;
+}
+
+.closeIcon2:hover {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: red;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+#success {
+    position: absolute;
+    top: 80px;
+    height: 100px;
+    width: 100%;
+    padding-top: 30px;
+    background: #273528;
+    color : #99cc99;
+    font-size: 24px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+#error {
+    position: absolute;
+    top: 80px;
+    height: 100px;
+    width: 100%;
+    padding-top: 30px;
+    background: #273528;
+    color : #cc9999;
+    font-size: 24px;
+    z-index: 1;
+    opacity: 0.9;
+}
